@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caractéristiques Raquette de Tennis de Table</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Formulaire pour renseigner sa plaque</h1>
+    <div class="block">
+
+        <label for="nom1">Nom :</label>
+        <input type="text" id="nom1" name="nom1" value="GTT 40">
+
+        <button id="button1">Envoyer</button>
+    </div>
+    <h1 class="titrePlsResult invisible">Plusieurs résultats</h1>
+    <div class="block plsResult invisible">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Marque</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyPlsResult">
+            </tbody>
+        </table>
+    </div>
+    <h1 class="titreCaracteristiques invisible">Caractéristiques de la plaque renseigner</h1>
+    <div class="block caracteristiques invisible">
+        <h2>Informations Générales</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Marque</th>
+                    <th>Catégorie</th>
+                    <th>Lien</th>
+                    <th>Prix</th>
+                    <th>Stockage</th>
+                    <th>Page</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="designationFind"></td>
+                    <td id="marqueFind"></td>
+                    <td id="categorieFind"></td>
+                    <td id="refFind"></td>
+                    <td id="prixFind"></td>
+                    <td id="stockageFind"></td>
+                    <td id="pageFind"></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Caractéristiques Techniques</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Épaisseur</th>
+                    <th>Rapidité</th>
+                    <th>Adhérence</th>
+                    <th>Contrôle</th>
+                    <th>Dureté</th>
+                    <th>Longueur Picot</th>
+                    <th>Diamètre Picot</th>
+                    <th>Effet Gênant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="epaisseurFind"></td>
+                    <td id="rapiditeFind"></td>
+                    <td id="adherenceFind"></td>
+                    <td id="controleFind"></td>
+                    <td id="dureteFind"></td>
+                    <td id="longueurPicotFind"></td>
+                    <td id="diametrePicotFind"></td>
+                    <td id="effetGenantFind"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h1 class="titreFormulaireCaracteristique">Critères voulus pour votre nouvelle plaque</h1>
+    <div class="block formPlaque ">
+        <div class="rowForm">
+            <div class="colForm">
+                <label for="rapiditeChoosen">Rapidité :</label>
+                <input type="number" id="rapiditeChoosen" name="rapiditeChoosen">
+            </div>
+            <div class="colForm">
+                <label for="adherenceChoosen">Adhérence :</label>
+                <input type="number" id="adherenceChoosen" name="adherenceChoosen">
+            </div>
+        </div>
+        <div class="rowForm">
+            <div class="colForm">
+                <label for="controleChoosen">Contrôle :</label>
+                <input type="number" id="controleChoosen" name="controleChoosen">
+            </div>
+            <div class="colForm">
+                <label for="dureteChoosen">Dureté :</label>
+                <input type="number" id="dureteChoosen" name="dureteChoosen">
+            </div>
+        </div>
+        <div class="rowForm">
+            <div class="colForm colFormButton">
+                <label for="nbPlaque">Nombre de plaque :</label>
+                <input type="number" id="nbPlaque" name="nbPlaque" value="1">
+            </div>
+            <div class="colForm">
+                <button id="button2">Envoyer</button>
+            </div>
+        </div>
+    </div>
+    <h1 class=" titreSimilaires invisible">Les plaques dont les caracteristiques sont les plus proches de ceux renseigner</h1>
+    <div class="blocSimilaire block invisible">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>
+                        Rapidité
+                        <button class="sort-btn" data-column="rapidite" data-order="asc">▲</button>
+                        <button class="sort-btn" data-column="rapidite" data-order="desc">▼</button>
+                    </th>
+                    <th>
+                        Adhérence
+                        <button class="sort-btn" data-column="adherence" data-order="asc">▲</button>
+                        <button class="sort-btn" data-column="adherence" data-order="desc">▼</button>
+                    </th>
+                    <th>
+                        Contrôle
+                        <button class="sort-btn" data-column="controle" data-order="asc">▲</button>
+                        <button class="sort-btn" data-column="controle" data-order="desc">▼</button>
+                    </th>
+                    <th>
+                        Dureté
+                        <button class="sort-btn" data-column="durete" data-order="asc">▲</button>
+                        <button class="sort-btn" data-column="durete" data-order="desc">▼</button>
+                    </th>
+                    <th>
+                        Différence
+                        <button class="sort-btn" data-column="difference" data-order="asc">▲</button>
+                        <button class="sort-btn" data-column="difference" data-order="desc">▼</button>
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbodySimilaires">
+            </tbody>
+        </table>
+    </div>
+    <h1>Tableau résumé</h1>
+    <div class="block">
+        <table>
+            <thead>
+                <tr>
+                    <th>Caractéristique</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Écart type</th>
+                    <th>Moyenne</th>
+                    <th>Plaque Actuelle</th>
+                    <th>Plaque Cible</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rapidité</td>
+                    <td id="rapiditeMin"></td>
+                    <td id="rapiditeMax"></td>
+                    <td id="rapiditeEcart"></td>
+                    <td id="rapiditeMoy"></td>
+                    <td id="rapiditeActuel"></td>
+                    <td id="rapiditeCible"></td>
+                </tr>
+                <tr>
+                    <td>Adhérence</td>
+                    <td id="adherenceMin"></td>
+                    <td id="adherenceMax"></td>
+                    <td id="adherenceEcart"></td>
+                    <td id="adherenceMoy"></td>
+                    <td id="adherenceActuel"></td>
+                    <td id="adherenceCible"></td>
+                </tr>
+                <tr>
+                    <td>Contrôle</td>
+                    <td id="controleMin"></td>
+                    <td id="controleMax"></td>
+                    <td id="controleEcart"></td>
+                    <td id="controleMoy"></td>
+                    <td id="controleActuel"></td>
+                    <td id="controleCible"></td>
+                </tr>
+                <tr>
+                    <td>Dureté</td>
+                    <td id="dureteMin"></td>
+                    <td id="dureteMax"></td>
+                    <td id="dureteEcart"></td>
+                    <td id="dureteMoy"></td>
+                    <td id="dureteActuel"></td>
+                    <td id="dureteCible"></td>
+                </tr>
+            <tbody>
+                
+        </table>
+    </div>
+    <script src="raquettes.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
