@@ -285,6 +285,7 @@ let remplirTableauPlaqueRecommandee = function(raquettes, critereSouhaite){
 
             let cellRapidite = row.insertCell();
             cellRapidite.textContent = plaque["rapidite"];
+            cellRapidite.classList.add("rapidite");
             let rapiditeCible = critereSouhaite["rapidite"];
             if(rapiditeCible > plaque["rapidite"]){
                 cellRapidite.classList.add("rouge");
@@ -294,6 +295,7 @@ let remplirTableauPlaqueRecommandee = function(raquettes, critereSouhaite){
 
             let cellAdherence = row.insertCell();
             cellAdherence.textContent = plaque["adherence"];
+            cellAdherence.classList.add("adherence");
             let adherenceCible = critereSouhaite["adherence"];
             if(adherenceCible > plaque["adherence"]){
                 cellAdherence.classList.add("rouge");
@@ -303,6 +305,7 @@ let remplirTableauPlaqueRecommandee = function(raquettes, critereSouhaite){
 
             let cellControle = row.insertCell();
             cellControle.textContent = plaque["controle"];
+            cellControle.classList.add("controle");
             let controleCible = critereSouhaite["controle"];
             if(controleCible > plaque["controle"]){
                 cellControle.classList.add("rouge");
@@ -312,6 +315,7 @@ let remplirTableauPlaqueRecommandee = function(raquettes, critereSouhaite){
 
             let cellDurete = row.insertCell();
             cellDurete.textContent = plaque["durete"];
+            cellDurete.classList.add("durete");
             let dureteCible = critereSouhaite["durete"];
             if(dureteCible > plaque["durete"]){
                 cellDurete.classList.add("rouge");
@@ -321,6 +325,7 @@ let remplirTableauPlaqueRecommandee = function(raquettes, critereSouhaite){
 
             let cellDifference = row.insertCell();
             cellDifference.textContent = plaqueWithDifference["difference"];
+            cellDifference.classList.add("difference");
             let cellAction = row.insertCell();
             let button = document.createElement("button");
             button.textContent = "Choisir";
@@ -359,3 +364,25 @@ let completeTableauChoixRaquetteRecommande = function(plaque){
 }
 
 
+document.querySelectorAll(".sort-btn").forEach((btn) => {
+    btn.onclick = function(event){
+        let el = event.target;
+        let critere = el.getAttribute("data-column");
+        let sens = el.getAttribute("data-order");
+        let tbody = document.getElementById("tbodySimilaires");
+        let rows = Array.from(tbody.rows);
+        rows.sort((a, b) => {
+            let aVal = parseFloat(a.querySelector("." + critere).textContent);
+            let bVal = parseFloat(b.querySelector("." + critere).textContent);
+            if(sens === "asc"){
+                return aVal - bVal;
+            } else {
+                return bVal - aVal;
+            }
+        });
+        rows.forEach((row) => {
+            tbody.appendChild(row);
+        });
+        
+    };
+});
