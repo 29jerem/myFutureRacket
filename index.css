@@ -148,3 +148,9 @@ tr:hover {
 .sort-btn:hover {
     color: blue;
 }
+
+/* Ajoutez ce style */
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur iOS */
+}
