@@ -1,3 +1,12 @@
+const CLASS_COUP_DROIT = "plaque-droit";
+const CLASS_REVERS = "plaque-revers";
+const CLASS_BOIS = "bois";
+const SEPARATEUR = " - ";
+
+let constructionClasse = function(debutClasse, genericClasse){
+    return debutClasse + SEPARATEUR + genericClasse;
+}
+
 let findRaquettes = function(designation){
     let raquettesFound = [];
     raquettes.forEach((raquette) => {
@@ -8,33 +17,33 @@ let findRaquettes = function(designation){
     return raquettesFound;
 };
 
-let afficheRaquette = function(raquette){
-    document.querySelector(".caracteristiques").classList.remove("invisible");
-    document.querySelector(".titreCaracteristiques").classList.remove("invisible");
-    document.getElementById("categorieFind").textContent = raquette["categorie"];
-    document.getElementById("marqueFind").textContent = raquette["marque"];
-    document.getElementById("designationFind").textContent = raquette["designation"];
+let affichePlaqueCoupDroit = function(raquette){
+    document.querySelector(".caracteristiques-plaque-droit").classList.remove("invisible");
+    document.querySelector(".titre-caracteristique-plaque-droit").classList.remove("invisible");
+    document.getElementById("categorie-find-plaque-droit").textContent = raquette["categorie"];
+    document.getElementById("marque-find-plaque-droit").textContent = raquette["marque"];
+    document.getElementById("designation-find-plaque-droit").textContent = raquette["designation"];
     let elRefLink = document.createElement("a");
     elRefLink.textContent = "lien";
     elRefLink.href = raquette["ref"];
     let elRef = document.getElementById("refFind");
     elRef.childElementCount > 0 ? elRef.replaceChild(elRefLink, elRef.childNodes[0]) : elRef.appendChild(elRefLink);
-    document.getElementById("epaisseurFind").textContent = raquette["epaisseur"];
-    document.getElementById("rapiditeFind").textContent = raquette["rapidite"];
-    document.getElementById("adherenceFind").textContent = raquette["adherence"];
-    document.getElementById("controleFind").textContent = raquette["controle"];
-    document.getElementById("longueurPicotFind").textContent = raquette["longueurPicot"];
-    document.getElementById("diametrePicotFind").textContent = raquette["diametrePicot"];
-    document.getElementById("effetGenantFind").textContent = raquette["effetGenant"];
-    document.getElementById("dureteFind").textContent = raquette["durete"];
-    document.getElementById("stockageFind").textContent = raquette["stockage"];
-    document.getElementById("pageFind").textContent = raquette["page"];
-    document.getElementById("prixFind").textContent = raquette["prix"];
+    document.getElementById("epaisseur-find-plaque-droit").textContent = raquette["epaisseur"];
+    document.getElementById("rapidite-find-plaque-droit").textContent = raquette["rapidite"];
+    document.getElementById("adherence-find-plaque-droit").textContent = raquette["adherence"];
+    document.getElementById("controle-find-plaque-droit").textContent = raquette["controle"];
+    document.getElementById("longueur-picot-find-plaque-droit").textContent = raquette["longueurPicot"];
+    document.getElementById("diametre-picot-find-plaque-droit").textContent = raquette["diametrePicot"];
+    document.getElementById("effetGenant-find-plaque-droit").textContent = raquette["effetGenant"];
+    document.getElementById("durete-find-plaque-droit").textContent = raquette["durete"];
+    document.getElementById("stockage-find-plaque-droit").textContent = raquette["stockage"];
+    document.getElementById("page-find-plaque-droit").textContent = raquette["page"];
+    document.getElementById("prix-find-plaque-droit").textContent = raquette["prix"];
 
-    document.getElementById("rapiditeActuel").textContent = raquette["rapidite"];
-    document.getElementById("adherenceActuel").textContent = raquette["adherence"];
-    document.getElementById("controleActuel").textContent = raquette["controle"];
-    document.getElementById("dureteActuel").textContent = raquette["durete"];
+    document.getElementById("rapidite-actuel-plaque-droit").textContent = raquette["rapidite"];
+    document.getElementById("adherence-actuel-plaque-droit").textContent = raquette["adherence"];
+    document.getElementById("controle-actuel-plaque-droit").textContent = raquette["controle"];
+    document.getElementById("durete-actuel-plaque-droit").textContent = raquette["durete"];
 
     document.getElementById("rapiditeChoosen").value = raquette["rapidite"];
     document.getElementById("adherenceChoosen").value = raquette["adherence"];
@@ -43,7 +52,7 @@ let afficheRaquette = function(raquette){
 }
 
 let removeRaquettePrecedent = function(){
-    let tbody = document.getElementById("tbodyPlsResult");
+    let tbody = document.getElementById("tableau-old-plaque-droit");
     while(tbody.firstChild){
         tbody.removeChild(tbody.firstChild);
     }
@@ -69,7 +78,7 @@ let removeRaquettePrecedent = function(){
 }
 
 let completeTableauChoixRaquette = function(raquettes){
-    let tbody = document.getElementById("tbodyPlsResult");
+    let tbody = document.getElementById("tableau-old-plaque-droit");
     raquettes.forEach((raquette) => {
         let row = tbody.insertRow();
         let cellDesignation = row.insertCell();
@@ -83,7 +92,7 @@ let completeTableauChoixRaquette = function(raquettes){
         let button = document.createElement("button");
         button.textContent = "Choisir";
         button.onclick = function(event){
-            afficheRaquette(raquette);
+            affichePlaqueCoupDroit(raquette);
         }
         cellAction.appendChild(button);
     });
@@ -108,12 +117,12 @@ let comparerTextes = function(texte1, texte2){
     return texte1Normalise.includes(texte2Normalise);
 }
 
-document.getElementById("button1").onclick = function(event) {
-    let designation1 = document.getElementById("nom1").value;
+document.getElementById("button-old-plaque-droit").onclick = function(event) {
+    let designation1 = document.getElementById("nom-old-plaque-droit").value;
     let raquettesFound = findRaquettes(designation1);
     removeRaquettePrecedent();
     if(raquettesFound.length === 1){
-        afficheRaquette(raquettesFound[0]);
+        affichePlaqueCoupDroit(raquettesFound[0]);
         document.querySelector(".titrePlsResult").classList.add("invisible");
         document.querySelector(".plsResult").classList.add("invisible");
     } else if(raquettesFound.length > 1){
