@@ -21,10 +21,11 @@
         <button class="onglet-button" id="onglet-plaque-droit">Plaque droit</button>
         <button class="onglet-button" id="onglet-plaque-revers">Plaque revers</button>
         <button class="onglet-button" id="onglet-bois">Bois</button>
+        <button class="onglet-button" id="onglet-resume">Résumé</button>
     </div>
 
     <!-- Onglet Plaque droit -->
-    <div id="bloc-onglet-plaque-droit">
+    <div id="bloc-onglet-plaque-droit" class="onglet">
 
         <!-- Formulaire pour renseigner sa plaque -->
         <h2>Formulaire pour renseigner sa plaque</h2>
@@ -251,13 +252,238 @@
     </div>
 
     <!-- Onglet pour la plaque revers -->
-    <div id="bloc-onglet-plaque-revers">
+    <div id="bloc-onglet-plaque-revers" class="onglet invisible">
+
+        <!-- Formulaire pour renseigner sa plaque -->
+        <h2>Formulaire pour renseigner sa plaque</h2>
+        <div id="form-old-plaque-revers" class="block">
+            <label for="nom-old-plaque-revers">Nom :</label>
+            <input type="text" id="nom-old-plaque-revers" name="nom-old-plaque-revers" value="GTT 40">
+            <button id="button-old-plaque-revers">Envoyer</button>
+        </div>
+
+        <!-- Résultat du formulaire si plusieurs plaques ont ete trouve -->
+        <div id="bloc-result-pls-old-plaque-revers" class="block">
+            <h1 id="titre-result-pls-old-plaque-revers" class="invisible">Plusieurs résultats</h1>
+            <div id="bloc-tableau-result-pls-old-plaque-revers" class="invisible">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Marque</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-old-plaque-revers">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Résultat du formulaire si une plaque a ete trouve -->
+        <div id="bloc-resultat-old-plaque-revers" class="block invisible">
+            <h1 id="titre-caracteristique-plaque-revers">Caractéristiques de la plaque renseigner</h1>
+            <div id="caracteristiques-plaque-revers" class="table-container">
+                <h2>Informations Générales</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Marque</th>
+                        <th>Catégorie</th>
+                        <th>Lien</th>
+                        <th>Prix</th>
+                        <th>Stockage</th>
+                        <th>Page</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td id="designation-find-plaque-revers"></td>
+                        <td id="marque-find-plaque-revers"></td>
+                        <td id="categorie-find-plaque-revers"></td>
+                        <td id="ref-find-plaque-revers"></td>
+                        <td id="prix-find-plaque-revers"></td>
+                        <td id="stockage-find-plaque-revers"></td>
+                        <td id="page-find-plaque-revers"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h2>Caractéristiques Techniques</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Épaisseur</th>
+                        <th>Rapidité</th>
+                        <th>Adhérence</th>
+                        <th>Contrôle</th>
+                        <th>Dureté</th>
+                        <th>Longueur Picot</th>
+                        <th>Diamètre Picot</th>
+                        <th>Effet Gênant</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td id="epaisseur-find-plaque-revers"></td>
+                        <td id="rapidite-find-plaque-revers"></td>
+                        <td id="adherence-find-plaque-revers"></td>
+                        <td id="controle-find-plaque-revers"></td>
+                        <td id="durete-find-plaque-revers"></td>
+                        <td id="longueur-picot-find-plaque-revers"></td>
+                        <td id="diametre-picot-find-plaque-revers"></td>
+                        <td id="effet-genant-find-plaque-revers"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Formulaire pour renseigner les critères de la nouvelle plaque -->
+        <div id="bloc-form-new-plaque-revers" class="block">
+            <h1 id="titre-formulaire-caracteristique-plaque-revers">Critères voulus pour votre nouvelle plaque</h1>
+            <div id="form-plaque-plaque-revers">
+                <div class="row-form">
+                    <div class="col-form">
+                        <label for="rapidite-choosen-plaque-revers">Rapidité :</label>
+                        <input type="number" id="rapidite-choosen-plaque-revers" name="rapidite-choosen-plaque-revers">
+                    </div>
+                    <div class="col-form">
+                        <label for="adherence-choosen-plaque-revers">Adhérence :</label>
+                        <input type="number" id="adherence-choosen-plaque-revers" name="adherence-choosen-plaque-revers">
+                    </div>
+                </div>
+                <div class="row-form">
+                    <div class="col-form">
+                        <label for="controle-choosen-plaque-revers">Contrôle :</label>
+                        <input type="number" id="controle-choosen-plaque-revers" name="controle-choosen-plaque-revers">
+                    </div>
+                    <div class="col-form">
+                        <label for="durete-choosen-plaque-revers">Dureté :</label>
+                        <input type="number" id="durete-choosen-plaque-revers" name="durete-choosen-plaque-revers">
+                    </div>
+                </div>
+                <div class="row-form">
+                    <div class="col-form col-form-button">
+                        <label for="nb-plaque-plaque-revers">Nombre de plaque :</label>
+                        <input type="number" id="nb-plaque-plaque-revers" name="nb-plaque-plaque-revers" value="1"
+                               min="1">
+                    </div>
+                    <div class="col-form">
+                        <button id="button-form-new-plaque-revers">Envoyer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résultat du formulaire pour la nouvelle plaque -->
+        <div id="bloc-result-form-new-plaque-revers" class="block invisible">
+            <h1 id="titre-result-form-new-plaque-revers">Les plaques dont les caracteristiques sont les plus proches de ceux renseigner</h1>
+            <div id="bloc-result-tableau-form-new-plaque-revers" class="table-container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>
+                            Rapidité
+                            <button class="sort-btn" data-column="rapidite-plaque-revers" data-order="asc">▲</button>
+                            <button class="sort-btn" data-column="rapidite-plaque-revers" data-order="desc">▼</button>
+                        </th>
+                        <th>
+                            Adhérence
+                            <button class="sort-btn" data-column="adherence-plaque-revers" data-order="asc">▲</button>
+                            <button class="sort-btn" data-column="adherence-plaque-revers" data-order="desc">▼</button>
+                        </th>
+                        <th>
+                            Contrôle
+                            <button class="sort-btn" data-column="controle-plaque-revers" data-order="asc">▲</button>
+                            <button class="sort-btn" data-column="controle-plaque-revers" data-order="desc">▼</button>
+                        </th>
+                        <th>
+                            Dureté
+                            <button class="sort-btn" data-column="durete-plaque-revers" data-order="asc">▲</button>
+                            <button class="sort-btn" data-column="durete-plaque-revers" data-order="desc">▼</button>
+                        </th>
+                        <th>
+                            Différence
+                            <button class="sort-btn" data-column="difference-plaque-revers" data-order="asc">▲</button>
+                            <button class="sort-btn" data-column="difference-plaque-revers" data-order="desc">▼</button>
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-result-new-plaque-revers">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tableau résumé -->
+        <div class="block">
+            <h1>Tableau résumé</h1>
+            <div class="table-container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Caractéristique</th>
+                        <th>Min</th>
+                        <th>Max</th>
+                        <th>Écart type</th>
+                        <th>Moyenne</th>
+                        <th>Plaque Actuelle</th>
+                        <th>Plaque Cible</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Rapidité</td>
+                        <td class="rapidite-min"></td>
+                        <td class="rapidite-max"></td>
+                        <td class="rapidite-ecart"></td>
+                        <td class="rapidite-moy"></td>
+                        <td id="rapidite-actuel-plaque-revers"></td>
+                        <td id="rapidite-cible-plaque-revers"></td>
+                    </tr>
+                    <tr>
+                        <td>Adhérence</td>
+                        <td class="adherence-min"></td>
+                        <td class="adherence-max"></td>
+                        <td class="adherence-ecart"></td>
+                        <td class="adherence-moy"></td>
+                        <td id="adherence-actuel-plaque-revers"></td>
+                        <td id="adherence-cible-plaque-revers"></td>
+                    </tr>
+                    <tr>
+                        <td>Contrôle</td>
+                        <td class="controle-min"></td>
+                        <td class="controle-max"></td>
+                        <td class="controle-ecart"></td>
+                        <td class="controle-moy"></td>
+                        <td id="controle-actuel-plaque-revers"></td>
+                        <td id="controle-cible-plaque-revers"></td>
+                    </tr>
+                    <tr>
+                        <td>Dureté</td>
+                        <td class="durete-min"></td>
+                        <td class="durete-max"></td>
+                        <td class="durete-ecart"></td>
+                        <td class="durete-moy"></td>
+                        <td id="durete-actuel-plaque-revers"></td>
+                        <td id="durete-cible-plaque-revers"></td>
+                    </tr>
+                    <tbody>
+
+                </table>
+            </div>
+        </div>
 
     </div>
 
     <!-- Onglet pour le bois -->
-    <div id="bloc-onglet-bois">
-    </div>
+    <div id="bloc-onglet-bois" class="onglet invisible"></div>
+
+    <!-- Onglet pour le résumé -->
+    <div id="bloc-onglet-resume" class="onglet invisible"></div>
 </div>
 <script src="raquettes.js"></script>
 <script src="index.js"></script>

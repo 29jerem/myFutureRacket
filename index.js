@@ -1,3 +1,35 @@
+/** script principal */
+
+/** 0 - init variable */
+
+const CLASS_INVISIBLE = 'invisible';
+const SEPARATEUR = '-';
+
+/** 1 - gestion des onglets */
+
+/** init variable onglet */
+const SELECTEUR_CLASS_ONGLET = ".onglet";
+const DEBUT_CLASS = "bloc";
+
+/** fonction au moment du clique sur le bouton des onglets */
+let cliqueBoutonOnglet = function(event) {
+    let listeOngletElement = document.querySelectorAll(SELECTEUR_CLASS_ONGLET);
+    listeOngletElement.forEach(ongletElement => {
+        if(!ongletElement.classList.contains(CLASS_INVISIBLE)){
+            ongletElement.classList.add(CLASS_INVISIBLE);
+        }
+    });
+    let idBlocOnglet = DEBUT_CLASS + SEPARATEUR + event.target.id;
+    document.getElementById(idBlocOnglet).classList.remove(CLASS_INVISIBLE);
+}
+
+/** initialise les boutons d'onglet */
+document.querySelectorAll('.onglet-button').forEach(boutonOnglet => {
+   boutonOnglet.onclick =  cliqueBoutonOnglet;
+});
+
+/**
+
 const CLASS_COUP_DROIT = "plaque-droit";
 const CLASS_REVERS = "plaque-revers";
 const CLASS_BOIS = "bois";
@@ -395,3 +427,5 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
         
     };
 });
+
+ */
